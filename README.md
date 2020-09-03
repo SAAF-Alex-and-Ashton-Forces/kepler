@@ -1,2 +1,6 @@
 # kepler
-All of us are lying in the gutter, but some of us are looking at the stars.
+
+> “I much prefer the sharpest criticism of a single intelligent man to the thoughtless approval of the masses.”
+> ― Johannes Kepler 
+
+The journey begins.
