@@ -34,3 +34,12 @@ import_config "#{Mix.env()}.exs"
 config :kepler, :pow,
   user: Kepler.Users.User,
   repo: Kepler.Repo
+
+config :kepler, :pow_assent,
+  providers: [
+    github: [
+      client_id: "64c7f0b43949555adb22",
+      client_secret: "3bf844f5713639f71a6261fa3468a9544ebf6ef5",
+      strategy: Assent.Strategy.Github
+    ]
+  ]
