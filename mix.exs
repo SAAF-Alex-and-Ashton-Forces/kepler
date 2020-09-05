@@ -46,11 +46,12 @@ defmodule Kepler.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
+      {:httpoison, "~> 1.6"},
       {:pow, "~> 1.0.20"},
       {:plug_cowboy, "~> 2.0"},
       {:pow_assent, "~> 0.4.8"},
       {:certifi, "~> 2.4"},
-      {:ssl_verify_fun, "~> 1.1"}
+      {:ssl_verify_fun, "~> 1.1"},
     ]
   end
 
