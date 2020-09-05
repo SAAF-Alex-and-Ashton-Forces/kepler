@@ -3,6 +3,8 @@ defmodule KeplerWeb.PageLive do
 
   @impl true
   def mount(_params, _session, socket) do
+    IO.inspect(socket.assigns, label: "socket.assigns")
+
     {:ok, assign(socket, query: "", results: %{})}
   end
 
