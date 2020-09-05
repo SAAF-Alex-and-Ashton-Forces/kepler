@@ -6,6 +6,8 @@ defmodule KeplerWeb.StarController do
     user = conn.assigns.current_user |> Repo.preload([:user_identities])
     IO.inspect(user, label: "user")
 
-    render(conn, "show.html")
+    stars = Kepler.Github.fetch_stars(user.username)
+
+    render(conn, "show.html", stars: stars)
   end
 end

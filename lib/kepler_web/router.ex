@@ -44,8 +44,8 @@ defmodule KeplerWeb.Router do
   scope "/", KeplerWeb do
     pipe_through [:browser, :protected]
 
-    live "/", PageLive, :index, [:user]
-    get "/my-stars", StarController, :index
+    # live "/", PageLive, :index, [:user]
+    get "/", StarController, :index
   end
 
   # Other scopes may use custom stacks.
