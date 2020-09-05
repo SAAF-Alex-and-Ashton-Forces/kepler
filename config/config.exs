@@ -39,7 +39,7 @@ config :kepler, :pow_assent,
   providers: [
     github: [
       client_id: "64c7f0b43949555adb22",
-      client_secret: "3bf844f5713639f71a6261fa3468a9544ebf6ef5",
+      client_secret: (System.get_env("GITHUB_OAUTH_CLIENT_SECRET") || raise "Environment variable GITHUB_OAUTH_CLIENT_SECRET is not set."),
       strategy: Assent.Strategy.Github
     ]
   ]
