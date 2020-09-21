@@ -41,5 +41,10 @@ config :kepler, :pow_assent,
       client_id: "64c7f0b43949555adb22",
       client_secret: (System.get_env("GITHUB_OAUTH_CLIENT_SECRET") || raise "Environment variable GITHUB_OAUTH_CLIENT_SECRET is not set."),
       strategy: Assent.Strategy.Github
-    ]
+    ],
+    gitlab: [
+      client_id: "ceffec553799a49a354544f1d7c9a9c376faafc27b82bef5d5a3dc06ca78c03a",
+      client_secret: (System.get_env("GITLAB_OAUTH_CLIENT_SECRET") || raise "Environment variable GITLAB_OAUTH_CLIENT_SECRET is not set."),
+      strategy: Assent.Strategy.Gitlab
+    ],
   ]
