@@ -7,12 +7,8 @@ defmodule KeplerWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_kepler_key",
-    signing_salt: "dw6PnwNN"
+    signing_salt: "SBe/lH0u"
   ]
-
-  socket "/socket", KeplerWeb.UserSocket,
-    websocket: true,
-    longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
@@ -24,7 +20,7 @@ defmodule KeplerWeb.Endpoint do
     at: "/",
     from: :kepler,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(assets fonts images favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -50,6 +46,5 @@ defmodule KeplerWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug Pow.Plug.Session, otp_app: :kepler
   plug KeplerWeb.Router
 end

@@ -8,9 +8,7 @@ defmodule Mix.Tasks.Docker.Db do
 
   @moduledoc """
   Fire up a postgres database for #{@project_name}, named #{@project_sname} in Docker.
-
   ## Usage:
-
       $ mix docker.db start
       $ mix docker.db stop
   """
@@ -28,7 +26,7 @@ defmodule Mix.Tasks.Docker.Db do
       "-e",
       "POSTGRES_PASSWORD=postgres",
       "-p",
-      "5433:5432",
+      "5432:5432",
       "--mount",
       "type=volume,src=#{volume},dst=/var/lib/postgresql/data",
       "--name",
