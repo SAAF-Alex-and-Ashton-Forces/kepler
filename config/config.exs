@@ -26,6 +26,11 @@ config :kepler, KeplerWeb.Endpoint,
 # at the `config/runtime.exs`.
 config :kepler, Kepler.Mailer, adapter: Swoosh.Adapters.Local
 
+# Make generators use UUIDs by default
+config :kepler, :generators,
+  binary_id: true,
+  sample_binary_id: "11111111-1111-1111-1111-111111111111"
+
 # Swoosh API client is needed for adapters other than SMTP.
 config :swoosh, :api_client, false
 
