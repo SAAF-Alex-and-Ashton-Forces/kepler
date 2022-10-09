@@ -1,13 +1,21 @@
 defmodule Mix.Tasks.Docker.Db do
   use Mix.Task
-
-  @project_name "Kepler"
-  @project_sname "kepler"
-
   @shortdoc "Start/stop the docker Postgres container for development"
 
   @moduledoc """
-  Fire up a postgres database for #{@project_name}, named #{@project_sname} in Docker.
+  Fire up a postgres database for development in Docker.
+
+  ## Config
+
+  config/dev.exs:
+
+  ```elixir
+  config :docker_db,
+    project_slug: "my_cool_app"
+  ```
+
+  The `project_slug` value must be a valid container name.
+
   ## Usage:
       $ mix docker.db start
       $ mix docker.db stop
@@ -15,9 +23,11 @@ defmodule Mix.Tasks.Docker.Db do
 
   @impl Mix.Task
   def run(["start"]) do
-    volume = "#{@project_sname}_volume"
+    slug = Application.get_env(:docker_db, :project_slug, "generic_phoenix_app")
 
-    Mix.shell().info("Starting container named #{@project_sname} with volume #{volume}...")
+    volume = "#{slug}_volume"
+
+    Mix.shell().info("Starting container named #{slug} with volume #{volume}...")
 
     System.cmd("docker", [
       "run",
@@ -30,7 +40,7 @@ defmodule Mix.Tasks.Docker.Db do
       "--mount",
       "type=volume,src=#{volume},dst=/var/lib/postgresql/data",
       "--name",
-      @project_sname,
+      slug,
       "postgres"
     ])
 
@@ -39,7 +49,8 @@ defmodule Mix.Tasks.Docker.Db do
 
   @impl Mix.Task
   def run(["stop"]) do
-    System.cmd("docker", ["stop", @project_sname])
-    Mix.shell().info("Container #{@project_sname} stopped")
+    slug = Application.get_env(:docker_db, :project_slug, "generic_phoenix_app")
+    System.cmd("docker", ["stop", slug])
+    Mix.shell().info("Container #{slug} stopped")
   end
 end
