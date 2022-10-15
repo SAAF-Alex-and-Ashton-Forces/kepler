@@ -21,6 +21,7 @@ defmodule KeplerWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/ui_ref", PageController, :ui_ref
   end
 
   # Other scopes may use custom stacks.
