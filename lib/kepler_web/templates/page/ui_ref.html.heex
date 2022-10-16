@@ -1,14 +1,26 @@
 <section>
-  <h1 class="text-6xl">UI Styles reference</h1>
+  <div class="mx-auto w-4/5">
+    <div class="rounded-lg border-6 p-7 pt-5 my-5 bg-white dark:bg-slate-800 dark:border-none shadow-xl">
+      <h1 class="text-8xl mt-3 mb-8">Hero Banner</h1>
+      <p class="text-lg">
+        Aliquam erat volutpat. Nunc eleifend leo vitae magna. In id erat non
+        orci commodo lobortis. Proin neque massa, cursus ut, gravida ut,
+        lobortis eget, lacus. Sed diam.
+      </p>
+    </div>
+  </div>
 
   <div class="max-w-prose mx-auto">
     <div class="rounded-lg border-6 p-7 pt-5 my-5 bg-white dark:bg-slate-800 dark:border-none shadow-xl">
-      <h1 class="text-3xl mb-7">Example Card</h1>
+      <h1 class="text-3xl mb-7">Example card with form</h1>
 
       <form>
         <div class="my-3">
+          <input name="name" type="text" placeholder="Your Name (e.g. Slartibartfast)" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-700 focus:ring-blue-700 dark:bg-slate-900">
+          <span class="mx-1 my-2 text-sm dark:text-red-400 text-red-500">You done messed up A-Aron</span>
+        </div>
+        <div class="my-3">
           <input name="email" type="email" placeholder="your-name@example.com" class="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-700 shadow-sm focus:border-blue-700 focus:ring-blue-700 dark:bg-slate-900">
-          <%#= error_tag f, :email %>
         </div>
 
         <div class="w-full my-5">
